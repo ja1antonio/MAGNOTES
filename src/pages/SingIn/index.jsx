@@ -16,8 +16,8 @@ export function SingIn() {
 
         <h2>Faça seu login</h2>
 
-        <Input planceholder="E-mail" type="text" icon={FiMail} />
-        <Input planceholder="Senha" type="password" icon={FiLock} />
+        <Input placeholder="E-mail" type="text" icon={FiMail} />
+        <Input placeholder="Senha" type="password" icon={FiLock} />
 
         <Button title={'Entrar'}></Button>
 
