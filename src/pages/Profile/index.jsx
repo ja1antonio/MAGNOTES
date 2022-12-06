@@ -2,6 +2,9 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../Assets/avatar_placeholder.svg';
+
 import { FiArrowLeft, FiMail, FiLock, FiUser, FiCamera } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
@@ -17,7 +20,11 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
 
-  const [avatar, setAvatar] = useState(user.avatar);
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
+
+  const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
