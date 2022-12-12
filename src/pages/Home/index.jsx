@@ -1,16 +1,27 @@
-import { FiPlus } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
+import { FiPlus } from 'react-icons/fi';
+import { api } from '../../services/api';
 import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
 
-import { Button } from '../../components/button';
 import { Note } from '../../components/Note';
 import { Input } from '../../components/Input';
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
-import { Tag } from '../../components/Tag';
+
 import { Section } from '../../components/Section';
 
 export function Home() {
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    async function fetchTags() {
+      const response = await api.get('/tags');
+      setTags(response.data);
+    }
+    fetchTags();
+  }, []);
+
   return (
     <Container>
       <Brand>
@@ -23,12 +34,12 @@ export function Home() {
         <li>
           <ButtonText isActive title="Todos" />
         </li>
-        <li>
-          <ButtonText title="React" />
-        </li>
-        <li>
-          <ButtonText title="Node" />
-        </li>
+        {tags &&
+          tags.map((tag) => (
+            <li key={String(tag.id)}>
+              <ButtonText title={tag.name} />
+            </li>
+          ))}
       </Menu>
 
       <Search>
