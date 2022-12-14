@@ -1,4 +1,8 @@
 import { Container, Links, Content } from './styles';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { api } from '../../services/api';
 
 import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
@@ -7,43 +11,53 @@ import { Tag } from '../../components/Tag';
 import { ButtonText } from '../../components/ButtonText';
 
 export function Details() {
+  const [data, setData] = useState(null);
+
+  const params = useParams();
+
+  useEffect(() => {
+    async function fetcNote() {
+      const response = await api.get(`/notes/${params.id}`);
+      setData(response.data);
+    }
+    fetcNote();
+  }, []);
   return (
     <Container>
       <Header />
 
-      <main>
-        <Content>
-          <ButtonText title="Excluir Nota" />
+      {data && (
+        <main>
+          <Content>
+            <ButtonText title="Excluir Nota" />
 
-          <h1>Introdução ao React</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus
-            vitae aut perferendis neque optio rerum non perspiciatis beatae est
-            eaque, quod laborum nemo labore nulla, illo consequuntur earum sit.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            repellat voluptates sequi magni enim quibusdam ipsum repudiandae
-            accusantium, vero velit fugiat laudantium autem corporis accusamus
-            error! Aliquam nostrum voluptate laborum?
-          </p>
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
 
-          <Section title="Links úteis">
-            <Links>
-              <li>
-                <a href="#">https://www.instagram.com/ja1_antonio/</a>
-              </li>
-              <li>
-                <a href="#">https://www.instagram.com/ja1_antonio/</a>
-              </li>
-            </Links>
-          </Section>
-          <Section title="Marcadores">
-            <Tag title="express"></Tag>
-            <Tag title="node.js"></Tag>
-          </Section>
+            {data.links && (
+              <Section title="Links úteis">
+                <Links>
+                  {data.links.map((link) => (
+                    <li key={String(link.id)}>
+                      <a href={link.url}>{link.url}</a>
+                    </li>
+                  ))}
+                </Links>
+              </Section>
+            )}
 
-          <Button title="Voltar" />
-        </Content>
-      </main>
+            {data.tags && (
+              <Section title="Marcadores">
+                {data.tags.map((tag) => (
+                  <Tag key={String(tag.id)} title={tag.name} />
+                ))}
+              </Section>
+            )}
+
+            <Button title="Voltar" />
+          </Content>
+        </main>
+      )}
     </Container>
   );
 }
