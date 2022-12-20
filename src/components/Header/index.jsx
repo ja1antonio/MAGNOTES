@@ -1,6 +1,6 @@
 import { RiShutDownLine } from 'react-icons/ri';
 import { api } from '../../services/api';
-
+import avatarPlaceholder from '../../Assets/avatar_placeholder.svg';
 import { useAuth } from '../../hooks/auth';
 
 import { Container, Profile, Logout } from './styles';
