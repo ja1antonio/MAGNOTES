@@ -59,9 +59,9 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <button type="button" onClick={handleBack}>
+        <Button type="button" onClick={handleBack}>
           <FiArrowLeft />
-        </button>
+        </Button>
       </header>
 
       <Form>
