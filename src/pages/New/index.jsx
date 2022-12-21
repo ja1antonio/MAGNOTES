@@ -4,7 +4,7 @@ import { ButtonText } from '../../components/ButtonText';
 import { Textarea } from '../../components/Textarea';
 import { NoteItem } from '../../components/NoteItem';
 import { Section } from '../../components/Section';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/button';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 

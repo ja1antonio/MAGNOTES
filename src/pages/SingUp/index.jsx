@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
 import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/button';
 
 import { Container, Form, Background } from './styles';
 
