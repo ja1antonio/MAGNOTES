@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { FiArrowLeft, FiMail, FiLock, FiUser, FiCamera } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/button';
 
 import { Container, Form, Avatar } from './styles';
 
