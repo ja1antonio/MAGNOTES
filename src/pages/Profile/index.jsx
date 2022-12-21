@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { ButtonText } from '../../components/ButtonText';
-
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import avatarPlaceholder from '../../Assets/avatar_placeholder.svg';
