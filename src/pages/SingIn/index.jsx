@@ -24,7 +24,7 @@ export function SingIn() {
   return (
     <Container>
       <Form action="">
-        <h1>Rocket Notes</h1>
+        <h1>Mag Notes</h1>
         <p>Aplicação para salvar e gerenciar seus Links úteis.</p>
 
         <h2>Faça seu login</h2>
