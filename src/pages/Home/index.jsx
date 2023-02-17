@@ -60,7 +60,7 @@ export function Home() {
   return (
     <Container>
       <Brand>
-        <h1>MAG Notes</h1>
+        <h1>MAGNotes</h1>
       </Brand>
 
       <Header />
