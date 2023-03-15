@@ -25,11 +25,24 @@ tivemos que criar um CRUD criando uma api propria e ligando o BACK-END com FRONT
 * CSS 
 * JAVASCRIPT
 * React - Vite
+* Css com Js
+* Grid e Flex
+* Styled Components
+* React-icons
+* React Router
 
-## Tecnologia Utilizadas BACK-END
-* Node.js
-* SQL 
-* Query Builder
+## API Restful
+
+* Fluxo e Rotas de autenticação
+* Validador de usuario cadastrado
+* validado senha
+* JWT
+* Upload de imagens
+* Disk Storage
+* Axios
+* Cors
+* Hook de autenticação
+* Use Effect
 
 ## Git Api - Back-END
 * https://github.com/ja1antonio/api
